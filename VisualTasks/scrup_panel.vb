@@ -19,4 +19,7 @@
         End If
     End Sub
 
+    Private Sub btnNewTask_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewTask.Click
+
+    End Sub
 End Class
