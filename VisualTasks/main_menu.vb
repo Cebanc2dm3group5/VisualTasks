@@ -42,4 +42,11 @@
     Private Sub btnDeleteProject_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeleteProject.Click
         'TODO - delete project
     End Sub
+
+    Private Sub btnAdmin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdmin.Click
+
+        Me.Hide()
+        user.Show()
+
+    End Sub
 End Class
