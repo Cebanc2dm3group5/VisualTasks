@@ -1,5 +1,10 @@
 ﻿Public Class scrup_panel
+    Dim projectID As Integer
 
+    Sub New(ByVal ID As Integer)
+        InitializeComponent()
+        projectID = ID
+    End Sub
 
     Private Sub scrup_panel_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         loadStories()
@@ -44,6 +49,6 @@
     End Sub
 
     Private Sub UsuariosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UsuariosToolStripMenuItem.Click
-        'TODO - open project-users administration
+        Dim projectUsers As project_users = New project_users(projectID)
     End Sub
 End Class
