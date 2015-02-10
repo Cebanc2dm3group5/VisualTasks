@@ -41,6 +41,11 @@ Partial Class scrup_panel
         Me.btnNewTask = New System.Windows.Forms.Button()
         Me.btnNewStory = New System.Windows.Forms.Button()
         Me.btnSeeAll = New System.Windows.Forms.Button()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.GestionarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'lstTODO
@@ -214,6 +219,28 @@ Partial Class scrup_panel
         Me.btnSeeAll.Text = "Ver todos"
         Me.btnSeeAll.UseVisualStyleBackColor = True
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionarToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(1281, 24)
+        Me.MenuStrip1.TabIndex = 20
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'GestionarToolStripMenuItem
+        '
+        Me.GestionarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuariosToolStripMenuItem})
+        Me.GestionarToolStripMenuItem.Name = "GestionarToolStripMenuItem"
+        Me.GestionarToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
+        Me.GestionarToolStripMenuItem.Text = "Gestionar"
+        '
+        'UsuariosToolStripMenuItem
+        '
+        Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
+        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.UsuariosToolStripMenuItem.Text = "Usuarios"
+        '
         'scrup_panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -238,8 +265,12 @@ Partial Class scrup_panel
         Me.Controls.Add(Me.lstDONE)
         Me.Controls.Add(Me.lstDOING)
         Me.Controls.Add(Me.lstTODO)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "scrup_panel"
         Me.Text = "SCRUM"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -263,4 +294,8 @@ Partial Class scrup_panel
     Friend WithEvents btnNewTask As System.Windows.Forms.Button
     Friend WithEvents btnNewStory As System.Windows.Forms.Button
     Friend WithEvents btnSeeAll As System.Windows.Forms.Button
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents GestionarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents UsuariosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

@@ -19,7 +19,9 @@
     End Sub
 
     Private Sub btnNewTask_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewTask.Click
-        Dim newTask As new_task = New new_task()
+        Dim storyID As Integer
+        'TODO - get story ID
+        Dim newTask As new_task = New new_task(storyID)
         If newTask.ShowDialog() = Windows.Forms.DialogResult.OK Then
             loadTasks()
         End If
@@ -39,5 +41,9 @@
 
     Private Sub lstStories_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstStories.SelectedIndexChanged
         loadAllTasks()
+    End Sub
+
+    Private Sub UsuariosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UsuariosToolStripMenuItem.Click
+        'TODO - open project-users administration
     End Sub
 End Class
