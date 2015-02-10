@@ -38,4 +38,8 @@
         End If
 
     End Sub
+
+    Private Sub btnDeleteProject_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeleteProject.Click
+        'TODO - delete project
+    End Sub
 End Class

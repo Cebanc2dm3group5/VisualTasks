@@ -14,12 +14,30 @@
         Dim story As String = InputBox("Nueva historia", "Introduzca una nueva historia", "")
         If story <> "" Then
             'TODO - save story
-
             loadStories()
         End If
     End Sub
 
     Private Sub btnNewTask_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewTask.Click
+        Dim newTask As new_task = New new_task()
+        If newTask.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            loadTasks()
+        End If
+    End Sub
 
+    Private Sub loadTasks()
+        'TODO - load tasks from story
+    End Sub
+
+    Private Sub loadAllTasks()
+        'TODO - load all tasks
+    End Sub
+
+    Private Sub btnSeeAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSeeAll.Click
+        loadAllTasks()
+    End Sub
+
+    Private Sub lstStories_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstStories.SelectedIndexChanged
+        loadAllTasks()
     End Sub
 End Class

@@ -40,6 +40,7 @@ Partial Class scrup_panel
         Me.btn3to4 = New System.Windows.Forms.Button()
         Me.btnNewTask = New System.Windows.Forms.Button()
         Me.btnNewStory = New System.Windows.Forms.Button()
+        Me.btnSeeAll = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lstTODO
@@ -199,16 +200,26 @@ Partial Class scrup_panel
         '
         Me.btnNewStory.Location = New System.Drawing.Point(28, 324)
         Me.btnNewStory.Name = "btnNewStory"
-        Me.btnNewStory.Size = New System.Drawing.Size(205, 53)
+        Me.btnNewStory.Size = New System.Drawing.Size(98, 53)
         Me.btnNewStory.TabIndex = 18
         Me.btnNewStory.Text = "+ Story"
         Me.btnNewStory.UseVisualStyleBackColor = True
+        '
+        'btnSeeAll
+        '
+        Me.btnSeeAll.Location = New System.Drawing.Point(132, 324)
+        Me.btnSeeAll.Name = "btnSeeAll"
+        Me.btnSeeAll.Size = New System.Drawing.Size(101, 53)
+        Me.btnSeeAll.TabIndex = 19
+        Me.btnSeeAll.Text = "Ver todos"
+        Me.btnSeeAll.UseVisualStyleBackColor = True
         '
         'scrup_panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1281, 403)
+        Me.Controls.Add(Me.btnSeeAll)
         Me.Controls.Add(Me.btnNewStory)
         Me.Controls.Add(Me.btnNewTask)
         Me.Controls.Add(Me.btn4to3)
@@ -251,4 +262,5 @@ Partial Class scrup_panel
     Friend WithEvents btn3to4 As System.Windows.Forms.Button
     Friend WithEvents btnNewTask As System.Windows.Forms.Button
     Friend WithEvents btnNewStory As System.Windows.Forms.Button
+    Friend WithEvents btnSeeAll As System.Windows.Forms.Button
 End Class
