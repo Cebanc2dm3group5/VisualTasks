@@ -114,6 +114,7 @@ Partial Class new_project
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtTitle)
         Me.Name = "new_project"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Nuevo proyecto"
         Me.ResumeLayout(False)
         Me.PerformLayout()

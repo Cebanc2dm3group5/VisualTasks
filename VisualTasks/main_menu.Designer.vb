@@ -98,6 +98,7 @@ Partial Class main_menu
         Me.Controls.Add(Me.btnAdmin)
         Me.Controls.Add(Me.lstProjects)
         Me.Name = "main_menu"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "VisualTask menu"
         Me.ResumeLayout(False)
         Me.PerformLayout()
