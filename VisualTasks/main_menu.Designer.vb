@@ -27,6 +27,7 @@ Partial Class main_menu
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnNewProject = New System.Windows.Forms.Button()
+        Me.btnDeleteProject = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lstProjects
@@ -34,13 +35,13 @@ Partial Class main_menu
         Me.lstProjects.FormattingEnabled = True
         Me.lstProjects.Location = New System.Drawing.Point(12, 64)
         Me.lstProjects.Name = "lstProjects"
-        Me.lstProjects.Size = New System.Drawing.Size(339, 186)
+        Me.lstProjects.Size = New System.Drawing.Size(338, 186)
         Me.lstProjects.TabIndex = 0
         '
         'btnAdmin
         '
         Me.btnAdmin.Enabled = False
-        Me.btnAdmin.Location = New System.Drawing.Point(12, 366)
+        Me.btnAdmin.Location = New System.Drawing.Point(12, 419)
         Me.btnAdmin.Name = "btnAdmin"
         Me.btnAdmin.Size = New System.Drawing.Size(338, 51)
         Me.btnAdmin.TabIndex = 1
@@ -61,7 +62,7 @@ Partial Class main_menu
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(34, 264)
+        Me.Label2.Location = New System.Drawing.Point(34, 317)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(282, 31)
         Me.Label2.TabIndex = 3
@@ -69,18 +70,28 @@ Partial Class main_menu
         '
         'btnNewProject
         '
-        Me.btnNewProject.Location = New System.Drawing.Point(13, 309)
+        Me.btnNewProject.Location = New System.Drawing.Point(13, 362)
         Me.btnNewProject.Name = "btnNewProject"
         Me.btnNewProject.Size = New System.Drawing.Size(338, 51)
         Me.btnNewProject.TabIndex = 4
         Me.btnNewProject.Text = "Nuevo proyecto"
         Me.btnNewProject.UseVisualStyleBackColor = True
         '
+        'btnDeleteProject
+        '
+        Me.btnDeleteProject.Location = New System.Drawing.Point(12, 256)
+        Me.btnDeleteProject.Name = "btnDeleteProject"
+        Me.btnDeleteProject.Size = New System.Drawing.Size(338, 51)
+        Me.btnDeleteProject.TabIndex = 5
+        Me.btnDeleteProject.Text = "Eliminar proyecto"
+        Me.btnDeleteProject.UseVisualStyleBackColor = True
+        '
         'main_menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(363, 427)
+        Me.ClientSize = New System.Drawing.Size(363, 492)
+        Me.Controls.Add(Me.btnDeleteProject)
         Me.Controls.Add(Me.btnNewProject)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -97,4 +108,5 @@ Partial Class main_menu
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnNewProject As System.Windows.Forms.Button
+    Friend WithEvents btnDeleteProject As System.Windows.Forms.Button
 End Class
