@@ -72,6 +72,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DDBBModule.vb" />
     <Compile Include="usuario.Designer.vb">
       <DependentUpon>usuario.vb</DependentUpon>
     </Compile>
@@ -186,11 +187,6 @@
     <None Include="ScrumDataSet.xss">
       <DependentUpon>ScrumDataSet.xsd</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Scrum.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

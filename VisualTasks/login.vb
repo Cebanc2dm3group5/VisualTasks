@@ -20,10 +20,34 @@
     End Sub
 
     Private Function authUser(ByVal username As String, ByVal password As String) As Integer
-        'TODO - check user
+        'check user
+        Dim id As Integer = -1
+        Try
+            Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
+            conexion.Open()
 
+            Dim cmd As New OleDb.OleDbCommand
+            cmd.Connection = conexion
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "SELECT UsuarioID FROM Usuario"
 
-        Return 1
+            Dim dr As OleDb.OleDbDataReader
+
+            dr = cmd.ExecuteReader
+
+            If dr.Read Then
+                id = dr(0)
+            End If
+
+            dr.Close()
+
+            conexion.Close()
+        Catch ex As Exception
+            MsgBox("Error de conexion:" & ex.Message)
+            Me.Close()
+        End Try
+
+        Return id
     End Function
 
     Private Sub txt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtUsername.TextChanged, txtPassword.TextChanged
