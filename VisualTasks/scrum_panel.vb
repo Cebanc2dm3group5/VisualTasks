@@ -17,7 +17,7 @@
 
     Private Sub loadStories()
         lstStories.Items.Clear()
-        'TODO - load stories
+        'load stories
         Try
             Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
             conexion.Open()
@@ -94,6 +94,7 @@
     Private Sub UsuariosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UsuariosToolStripMenuItem.Click
         If isMaster(userID, projectID) Then
             Dim projectUsers As project_users = New project_users(projectID)
+            projectUsers.Show()
         End If
     End Sub
 

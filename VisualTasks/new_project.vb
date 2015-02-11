@@ -45,6 +45,7 @@
         title = txtTitle.Text
         description = txtDescripcion.Text
         Dim userID As Integer = -1
+        Dim projectID As Integer = 0
 
         If cmbMaster.SelectedIndex <> -1 Then
             userID = userIDs(cmbMaster.SelectedIndex)
@@ -63,6 +64,31 @@
 
                 cmd.ExecuteNonQuery()
 
+                cmd.CommandText = "SELECT TOP 1 ProyectoID FROM Proyecto ORDER BY ProyectoID DESC"
+
+                Dim dr As OleDb.OleDbDataReader
+
+                dr = cmd.ExecuteReader
+
+                While dr.Read
+                    projectID = dr(0)
+                End While
+
+                conexion.Close()
+            Catch ex As Exception
+                MsgBox("Error de conexion:" & ex.Message)
+                Me.Close()
+            End Try
+
+            Try
+                Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
+                conexion.Open()
+
+                Dim cmd As New OleDb.OleDbCommand
+                cmd.Connection = conexion
+                cmd.CommandType = CommandType.Text
+                cmd.CommandText = "INSERT INTO UsuarioProyecto (UsuarioID, ProyectoID) VALUES (" & userID & ", " & projectID & ")"
+                cmd.ExecuteNonQuery()
                 conexion.Close()
             Catch ex As Exception
                 MsgBox("Error de conexion:" & ex.Message)
