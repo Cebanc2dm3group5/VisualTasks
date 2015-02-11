@@ -43,7 +43,7 @@ Partial Class scrum_panel
         Me.btnSeeAll = New System.Windows.Forms.Button()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.GestionarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.smiGestion = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -224,24 +224,25 @@ Partial Class scrum_panel
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionarToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.smiGestion})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1281, 24)
         Me.MenuStrip1.TabIndex = 20
         Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'GestionarToolStripMenuItem
+        'smiGestion
         '
-        Me.GestionarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuariosToolStripMenuItem})
-        Me.GestionarToolStripMenuItem.Name = "GestionarToolStripMenuItem"
-        Me.GestionarToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
-        Me.GestionarToolStripMenuItem.Text = "Gestionar"
+        Me.smiGestion.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuariosToolStripMenuItem})
+        Me.smiGestion.Enabled = False
+        Me.smiGestion.Name = "smiGestion"
+        Me.smiGestion.Size = New System.Drawing.Size(69, 20)
+        Me.smiGestion.Text = "Gestionar"
         '
         'UsuariosToolStripMenuItem
         '
         Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
-        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
+        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.UsuariosToolStripMenuItem.Text = "Usuarios"
         '
         'scrum_panel
@@ -300,6 +301,6 @@ Partial Class scrum_panel
     Friend WithEvents btnSeeAll As System.Windows.Forms.Button
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents GestionarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents smiGestion As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UsuariosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
