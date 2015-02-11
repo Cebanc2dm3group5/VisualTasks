@@ -73,12 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DDBBModule.vb" />
-    <Compile Include="usuario.Designer.vb">
-      <DependentUpon>usuario.vb</DependentUpon>
-    </Compile>
-    <Compile Include="usuario.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="project_users.Designer.vb">
       <DependentUpon>project_users.vb</DependentUpon>
     </Compile>
@@ -135,11 +129,14 @@
     <Compile Include="scrum_panel.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="usuario.designer.vb">
+      <DependentUpon>usuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="usuario.resx">
-      <DependentUpon>usuario.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="new_task.resx">
       <DependentUpon>new_task.vb</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="scrum_panel.resx">
       <DependentUpon>scrum_panel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usuario.resx">
+      <DependentUpon>usuario.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
