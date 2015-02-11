@@ -61,10 +61,10 @@
 
         Dim story As String
 
-            story = InputBox("Nueva historia", "Introduzca una nueva historia", "")
-            If story.Trim = "" Then
+        story = InputBox("Nueva historia", "Introduzca una nueva historia", "")
+        If story.Trim = "" Then
             MsgBox("El nombre de la historia está vacío y no se guardará")
-            End If
+        End If
 
         'save story
         saveStory(story, 0)
@@ -251,7 +251,58 @@
 
     End Sub
 
-    Private Sub btn1to2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn1to2.Click
+    Private Sub setTaskEstado(ByVal taskID As Integer, ByVal estado As Integer)
+        Try
+            Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
+            conexion.Open()
 
+            Dim cmd As New OleDb.OleDbCommand
+            cmd.Connection = conexion
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "UPDATE Tarea SET Estado=" & estado & " WHERE TareaID=" & taskID
+
+            cmd.ExecuteNonQuery()
+            conexion.Close()
+        Catch ex As Exception
+            MsgBox("Error de conexion:" & ex.Message)
+            Me.Close()
+        End Try
+        loadTasks()
+    End Sub
+
+    Private Sub btn1to2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn1to2.Click
+        If lstDONE.SelectedIndex <> -1 Then
+            setTaskEstado(tasksDoneIDs(lstDONE.SelectedIndex), 2)
+        End If
+    End Sub
+
+    Private Sub btn2to1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn2to1.Click
+        If lstDOING.SelectedIndex <> -1 Then
+            setTaskEstado(tasksDoneIDs(lstDOING.SelectedIndex), 1)
+        End If
+    End Sub
+
+    Private Sub btn2to3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn2to3.Click
+        If lstDOING.SelectedIndex <> -1 Then
+            setTaskEstado(tasksDoneIDs(lstDOING.SelectedIndex), 3)
+        End If
+    End Sub
+
+    Private Sub btn3to2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn3to2.Click
+        If lstToVerify.SelectedIndex <> -1 Then
+            setTaskEstado(tasksDoneIDs(lstToVerify.SelectedIndex), 2)
+        End If
+    End Sub
+
+    Private Sub btn3to4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn3to4.Click
+        If lstToVerify.SelectedIndex <> -1 Then
+            setTaskEstado(tasksDoneIDs(lstToVerify.SelectedIndex), 4)
+        End If
+    End Sub
+
+    Private Sub btn4to3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn4to3.Click
+        If lstDONE.SelectedIndex <> -1 Then
+            setTaskEstado(tasksDoneIDs(lstDONE.SelectedIndex), 3)
+        End If
     End Sub
 End Class
