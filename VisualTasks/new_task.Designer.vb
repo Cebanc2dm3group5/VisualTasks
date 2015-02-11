@@ -23,7 +23,7 @@ Partial Class new_task
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.btnSaveTask = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtTaskName = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbUser = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
@@ -37,12 +37,12 @@ Partial Class new_task
         Me.btnSaveTask.Text = "Guardar"
         Me.btnSaveTask.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'txtTaskName
         '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 12)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(376, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.txtTaskName.Location = New System.Drawing.Point(12, 12)
+        Me.txtTaskName.Name = "txtTaskName"
+        Me.txtTaskName.Size = New System.Drawing.Size(376, 20)
+        Me.txtTaskName.TabIndex = 1
         '
         'Label3
         '
@@ -68,7 +68,7 @@ Partial Class new_task
         Me.ClientSize = New System.Drawing.Size(400, 87)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbUser)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtTaskName)
         Me.Controls.Add(Me.btnSaveTask)
         Me.Name = "new_task"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -78,7 +78,7 @@ Partial Class new_task
 
     End Sub
     Friend WithEvents btnSaveTask As System.Windows.Forms.Button
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtTaskName As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents cmbUser As System.Windows.Forms.ComboBox
 End Class
