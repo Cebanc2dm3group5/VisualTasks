@@ -87,7 +87,7 @@
     End Sub
 
     Private Sub loadTasks()
-        'TODO - load tasks from story
+        'load tasks from story
         Try
             Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
             conexion.Open()
@@ -141,6 +141,55 @@
 
     Private Sub loadAllTasks()
         'TODO - load all tasks
+        Try
+            Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
+            conexion.Open()
+
+            Dim cmd As New OleDb.OleDbCommand
+            cmd.Connection = conexion
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "SELECT Tarea.UsuarioID, Tarea.Estado, Tarea.Descripcion FROM Tarea, Historia WHERE Tarea.HistoriaID=Historia.HistoriaID AND Historia.ProyectoID=" & projectID
+
+            Dim dr As OleDb.OleDbDataReader
+
+            dr = cmd.ExecuteReader
+
+            Dim positionTodo As Integer = 0
+            Dim positionDoing As Integer = 0
+            Dim positionToVerify As Integer = 0
+            Dim positionDone As Integer = 0
+            While dr.Read
+                Dim estado As Integer = dr(1)
+                If estado = 1 Then
+                    lstTODO.Items.Add(dr(2))
+                    ReDim Preserve tasksTodoIDs(positionTodo)
+                    tasksTodoIDs(positionTodo) = dr(0)
+                    positionTodo += 1
+                ElseIf estado = 2 Then
+                    lstDOING.Items.Add(dr(2))
+                    ReDim Preserve tasksDoingIDs(positionDoing)
+                    tasksDoingIDs(positionDoing) = dr(0)
+                    positionDoing += 1
+                ElseIf estado = 3 Then
+                    lstToVerify.Items.Add(dr(2))
+                    ReDim Preserve tasksToVerifyIDs(positionToVerify)
+                    tasksToVerifyIDs(positionToVerify) = dr(0)
+                    positionToVerify += 1
+                Else
+                    lstTODO.Items.Add(dr(2))
+                    ReDim Preserve tasksDoneIDs(positionDone)
+                    tasksDoneIDs(positionDone) = dr(0)
+                    positionDone += 1
+                End If
+            End While
+
+            dr.Close()
+
+            conexion.Close()
+        Catch ex As Exception
+            MsgBox("Error de conexion:" & ex.Message)
+            Me.Close()
+        End Try
     End Sub
 
     Private Sub btnSeeAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSeeAll.Click
