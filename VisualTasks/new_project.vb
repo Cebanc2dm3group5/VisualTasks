@@ -44,27 +44,36 @@
     Private Sub btnAccept_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAccept.Click
         title = txtTitle.Text
         description = txtDescripcion.Text
+        Dim userID As Integer = -1
+
+        If cmbMaster.SelectedIndex <> -1 Then
+            userID = userIDs(cmbMaster.SelectedIndex)
+        End If
 
         'TODO - save project
-        Try
-            Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
-            conexion.Open()
+        If title <> "" And description <> "" And userID <> -1 Then
+            Try
+                Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
+                conexion.Open()
 
-            Dim cmd As New OleDb.OleDbCommand
-            cmd.Connection = conexion
-            cmd.CommandType = CommandType.Text
-            cmd.CommandText = "INSERT INTO Proyecto (NombreProyecto, Descripcion, ScrumMaster) VALUES ('" & title & "', '" & description & "', " & userIDs(cmbMaster.SelectedIndex) & ")"
+                Dim cmd As New OleDb.OleDbCommand
+                cmd.Connection = conexion
+                cmd.CommandType = CommandType.Text
+                cmd.CommandText = "INSERT INTO Proyecto (NombreProyecto, Descripcion, ScrumMaster) VALUES ('" & title & "', '" & description & "', " & userID & ")"
 
-            cmd.ExecuteNonQuery()
+                cmd.ExecuteNonQuery()
 
-            conexion.Close()
-        Catch ex As Exception
-            MsgBox("Error de conexion:" & ex.Message)
+                conexion.Close()
+            Catch ex As Exception
+                MsgBox("Error de conexion:" & ex.Message)
+                Me.Close()
+            End Try
+
+            Me.DialogResult = Windows.Forms.DialogResult.OK
             Me.Close()
-        End Try
-
-        Me.DialogResult = Windows.Forms.DialogResult.OK
-        Me.Close()
+        Else
+            MsgBox("Introduce todos los datos")
+        End If
     End Sub
 
     Private Sub cmbMaster_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbMaster.SelectedIndexChanged
