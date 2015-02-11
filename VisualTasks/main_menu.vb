@@ -41,7 +41,7 @@
     Private Sub btnAdmin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdmin.Click
 
         Me.Hide()
-        'user.Show()
+        usuario.Show()
 
     End Sub
 End Class

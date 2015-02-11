@@ -71,6 +71,7 @@ Partial Class new_task
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.btnSaveTask)
         Me.Name = "new_task"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Nueva tarea"
         Me.ResumeLayout(False)
         Me.PerformLayout()

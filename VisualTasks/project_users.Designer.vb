@@ -72,6 +72,7 @@ Partial Class project_users
         Me.Controls.Add(Me.cmbMaster)
         Me.Controls.Add(Me.lstUsers)
         Me.Name = "project_users"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Usuarios del proyecto"
         Me.ResumeLayout(False)
 

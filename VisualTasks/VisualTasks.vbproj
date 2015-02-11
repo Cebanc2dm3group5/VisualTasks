@@ -72,6 +72,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="usuario.Designer.vb">
+      <DependentUpon>usuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="project_users.Designer.vb">
       <DependentUpon>project_users.vb</DependentUpon>
     </Compile>
@@ -117,6 +123,11 @@
     <Compile Include="new_project.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ScrumDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScrumDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="scrup_panel.Designer.vb">
       <DependentUpon>scrup_panel.vb</DependentUpon>
     </Compile>
@@ -125,6 +136,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="usuario.resx">
+      <DependentUpon>usuario.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="new_task.resx">
       <DependentUpon>new_task.vb</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +165,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -160,6 +175,22 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="ScrumDataSet.xsc">
+      <DependentUpon>ScrumDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ScrumDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ScrumDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ScrumDataSet.xss">
+      <DependentUpon>ScrumDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scrum.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
