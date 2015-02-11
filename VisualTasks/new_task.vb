@@ -20,7 +20,7 @@
     End Sub
 
     Private Sub SaveTask()
-        'TODO - save task
+        'save task
 
         Dim taskName As String = txtTaskName.Text
 
@@ -70,6 +70,7 @@
 
     Private Sub loadUserCombo()
 
+        'Load User
         'TODO Comprobar
         Try
 
@@ -112,7 +113,7 @@
 
     Private Sub cmbUser_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbUser.SelectedIndexChanged
 
-
+        'Select UserID
         'TODO: Comprobar
 
         usuarioID = usuarios(cmbUser.SelectedIndex)
