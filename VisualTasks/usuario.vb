@@ -66,6 +66,11 @@
 
             conexion.Close()
 
+            txtContrasena.Text = ""
+            txtNombre.Text = ""
+            txtNombreUsuario.Text = ""
+            chcAdmin.Checked = False
+
         Catch ex As Exception
 
             MsgBox(Err.Number & " " & Err.Description)
