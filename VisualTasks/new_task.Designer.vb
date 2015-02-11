@@ -25,7 +25,7 @@ Partial Class new_task
         Me.btnSaveTask = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.cmbMaster = New System.Windows.Forms.ComboBox()
+        Me.cmbUser = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'btnSaveTask
@@ -53,13 +53,13 @@ Partial Class new_task
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "Asignar a"
         '
-        'cmbMaster
+        'cmbUser
         '
-        Me.cmbMaster.FormattingEnabled = True
-        Me.cmbMaster.Location = New System.Drawing.Point(85, 49)
-        Me.cmbMaster.Name = "cmbMaster"
-        Me.cmbMaster.Size = New System.Drawing.Size(121, 21)
-        Me.cmbMaster.TabIndex = 6
+        Me.cmbUser.FormattingEnabled = True
+        Me.cmbUser.Location = New System.Drawing.Point(85, 49)
+        Me.cmbUser.Name = "cmbUser"
+        Me.cmbUser.Size = New System.Drawing.Size(121, 21)
+        Me.cmbUser.TabIndex = 6
         '
         'new_task
         '
@@ -67,7 +67,7 @@ Partial Class new_task
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(400, 87)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.cmbMaster)
+        Me.Controls.Add(Me.cmbUser)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.btnSaveTask)
         Me.Name = "new_task"
@@ -79,5 +79,5 @@ Partial Class new_task
     Friend WithEvents btnSaveTask As System.Windows.Forms.Button
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents cmbMaster As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbUser As System.Windows.Forms.ComboBox
 End Class

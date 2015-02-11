@@ -25,11 +25,6 @@
 
     End Sub
 
-    Function isAdmin(ByVal userID As Integer) As Boolean
-        'TODO -check if user is admin
-
-        Return True
-    End Function
 
     Private Sub btnNewProject_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewProject.Click
         Dim newProject As new_project = New new_project()

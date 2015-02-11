@@ -203,6 +203,7 @@ Partial Class scrup_panel
         '
         'btnNewStory
         '
+        Me.btnNewStory.Enabled = False
         Me.btnNewStory.Location = New System.Drawing.Point(28, 324)
         Me.btnNewStory.Name = "btnNewStory"
         Me.btnNewStory.Size = New System.Drawing.Size(98, 53)
@@ -238,7 +239,7 @@ Partial Class scrup_panel
         'UsuariosToolStripMenuItem
         '
         Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
-        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.UsuariosToolStripMenuItem.Text = "Usuarios"
         '
         'scrup_panel
