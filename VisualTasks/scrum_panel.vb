@@ -59,8 +59,13 @@
 
     Private Sub initView()
         If isMaster(userID, projectID) Then
-
+            btnNewStory.Enabled = True
+            btn3to4.Enabled = True
+            btn4to3.Enabled = True
         End If
     End Sub
 
+    Private Sub MenuStrip1_ItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
+    End Sub
 End Class

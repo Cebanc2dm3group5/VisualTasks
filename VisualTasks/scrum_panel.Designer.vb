@@ -176,6 +176,7 @@ Partial Class scrum_panel
         '
         'btn4to3
         '
+        Me.btn4to3.Enabled = False
         Me.btn4to3.Location = New System.Drawing.Point(1014, 200)
         Me.btn4to3.Name = "btn4to3"
         Me.btn4to3.Size = New System.Drawing.Size(36, 53)
@@ -185,6 +186,7 @@ Partial Class scrum_panel
         '
         'btn3to4
         '
+        Me.btn3to4.Enabled = False
         Me.btn3to4.Location = New System.Drawing.Point(1013, 84)
         Me.btn3to4.Name = "btn3to4"
         Me.btn3to4.Size = New System.Drawing.Size(36, 53)
@@ -242,7 +244,7 @@ Partial Class scrum_panel
         Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.UsuariosToolStripMenuItem.Text = "Usuarios"
         '
-        'scrup_panel
+        'scrum_panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -268,7 +270,7 @@ Partial Class scrum_panel
         Me.Controls.Add(Me.lstTODO)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Name = "scrup_panel"
+        Me.Name = "scrum_panel"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SCRUM"
         Me.MenuStrip1.ResumeLayout(False)
