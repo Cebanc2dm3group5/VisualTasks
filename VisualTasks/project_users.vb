@@ -32,7 +32,7 @@
             Dim position As Integer = 0
             While dr.Read
                 lstUsers.Items.Add(dr(0))
-                ReDim userProjectIDs(position)
+                ReDim Preserve userProjectIDs(position)
                 userProjectIDs(position) = dr(1)
                 position += 1
             End While
@@ -89,7 +89,7 @@
             Dim position As Integer = 0
             While dr.Read
                 cmbUser.Items.Add(dr(0))
-                ReDim userComboIDs(position)
+                ReDim Preserve userComboIDs(position)
                 userComboIDs(position) = dr(1)
                 position += 1
             End While

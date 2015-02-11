@@ -24,7 +24,7 @@ Partial Class scrum_panel
     Private Sub InitializeComponent()
         Me.lstTODO = New System.Windows.Forms.ListBox()
         Me.lstDOING = New System.Windows.Forms.ListBox()
-        Me.lstDONE = New System.Windows.Forms.ListBox()
+        Me.lstToVerify = New System.Windows.Forms.ListBox()
         Me.btn1to2 = New System.Windows.Forms.Button()
         Me.btn2to3 = New System.Windows.Forms.Button()
         Me.btn2to1 = New System.Windows.Forms.Button()
@@ -35,7 +35,7 @@ Partial Class scrum_panel
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lstStories = New System.Windows.Forms.ListBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.lstDONE = New System.Windows.Forms.ListBox()
         Me.btn4to3 = New System.Windows.Forms.Button()
         Me.btn3to4 = New System.Windows.Forms.Button()
         Me.btnNewTask = New System.Windows.Forms.Button()
@@ -64,13 +64,13 @@ Partial Class scrum_panel
         Me.lstDOING.Size = New System.Drawing.Size(205, 277)
         Me.lstDOING.TabIndex = 1
         '
-        'lstDONE
+        'lstToVerify
         '
-        Me.lstDONE.FormattingEnabled = True
-        Me.lstDONE.Location = New System.Drawing.Point(802, 41)
-        Me.lstDONE.Name = "lstDONE"
-        Me.lstDONE.Size = New System.Drawing.Size(205, 277)
-        Me.lstDONE.TabIndex = 2
+        Me.lstToVerify.FormattingEnabled = True
+        Me.lstToVerify.Location = New System.Drawing.Point(802, 41)
+        Me.lstToVerify.Name = "lstToVerify"
+        Me.lstToVerify.Size = New System.Drawing.Size(205, 277)
+        Me.lstToVerify.TabIndex = 2
         '
         'btn1to2
         '
@@ -166,13 +166,13 @@ Partial Class scrum_panel
         Me.Label5.TabIndex = 14
         Me.Label5.Text = "DONE"
         '
-        'ListBox2
+        'lstDONE
         '
-        Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.Location = New System.Drawing.Point(1060, 41)
-        Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(202, 277)
-        Me.ListBox2.TabIndex = 13
+        Me.lstDONE.FormattingEnabled = True
+        Me.lstDONE.Location = New System.Drawing.Point(1060, 41)
+        Me.lstDONE.Name = "lstDONE"
+        Me.lstDONE.Size = New System.Drawing.Size(202, 277)
+        Me.lstDONE.TabIndex = 13
         '
         'btn4to3
         '
@@ -256,7 +256,7 @@ Partial Class scrum_panel
         Me.Controls.Add(Me.btn4to3)
         Me.Controls.Add(Me.btn3to4)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.ListBox2)
+        Me.Controls.Add(Me.lstDONE)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.lstStories)
         Me.Controls.Add(Me.Label3)
@@ -266,7 +266,7 @@ Partial Class scrum_panel
         Me.Controls.Add(Me.btn2to1)
         Me.Controls.Add(Me.btn2to3)
         Me.Controls.Add(Me.btn1to2)
-        Me.Controls.Add(Me.lstDONE)
+        Me.Controls.Add(Me.lstToVerify)
         Me.Controls.Add(Me.lstDOING)
         Me.Controls.Add(Me.lstTODO)
         Me.Controls.Add(Me.MenuStrip1)
@@ -282,7 +282,7 @@ Partial Class scrum_panel
     End Sub
     Friend WithEvents lstTODO As System.Windows.Forms.ListBox
     Friend WithEvents lstDOING As System.Windows.Forms.ListBox
-    Friend WithEvents lstDONE As System.Windows.Forms.ListBox
+    Friend WithEvents lstToVerify As System.Windows.Forms.ListBox
     Friend WithEvents btn1to2 As System.Windows.Forms.Button
     Friend WithEvents btn2to3 As System.Windows.Forms.Button
     Friend WithEvents btn2to1 As System.Windows.Forms.Button
@@ -293,7 +293,7 @@ Partial Class scrum_panel
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents lstStories As System.Windows.Forms.ListBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents ListBox2 As System.Windows.Forms.ListBox
+    Friend WithEvents lstDONE As System.Windows.Forms.ListBox
     Friend WithEvents btn4to3 As System.Windows.Forms.Button
     Friend WithEvents btn3to4 As System.Windows.Forms.Button
     Friend WithEvents btnNewTask As System.Windows.Forms.Button

@@ -4,6 +4,14 @@
 
     Dim StoryIDs As Integer()
 
+    Dim tasksTodoIDs As Integer()
+
+    Dim tasksDoingIDs As Integer()
+
+    Dim tasksToVerifyIDs As Integer()
+
+    Dim tasksDoneIDs As Integer()
+
     Sub New(ByVal pID As Integer, ByVal uID As Integer)
         InitializeComponent()
         projectID = pID
@@ -34,7 +42,7 @@
             Dim position As Integer = 0
             While dr.Read
                 lstStories.Items.Add(dr(0))
-                ReDim StoryIDs(position)
+                ReDim Preserve StoryIDs(position)
                 StoryIDs(position) = dr(1)
                 position += 1
             End While
@@ -60,7 +68,7 @@
             End If
         Loop While story.Trim = ""
 
-        'TODO - save story
+        'save story
         saveStory(story, 0)
         loadStories()
 
@@ -80,6 +88,55 @@
 
     Private Sub loadTasks()
         'TODO - load tasks from story
+        Try
+            Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
+            conexion.Open()
+
+            Dim cmd As New OleDb.OleDbCommand
+            cmd.Connection = conexion
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "SELECT UsuarioID, Estado, Descripcion FROM Tarea WHERE HistoriaID=" & StoryIDs(lstStories.SelectedIndex)
+
+            Dim dr As OleDb.OleDbDataReader
+
+            dr = cmd.ExecuteReader
+
+            Dim positionTodo As Integer = 0
+            Dim positionDoing As Integer = 0
+            Dim positionToVerify As Integer = 0
+            Dim positionDone As Integer = 0
+            While dr.Read
+                Dim estado As Integer = dr(1)
+                If estado = 1 Then
+                    lstTODO.Items.Add(dr(2))
+                    ReDim Preserve tasksTodoIDs(positionTodo)
+                    tasksTodoIDs(positionTodo) = dr(0)
+                    positionTodo += 1
+                ElseIf estado = 2 Then
+                    lstDOING.Items.Add(dr(2))
+                    ReDim Preserve tasksDoingIDs(positionDoing)
+                    tasksDoingIDs(positionDoing) = dr(0)
+                    positionDoing += 1
+                ElseIf estado = 3 Then
+                    lstToVerify.Items.Add(dr(2))
+                    ReDim Preserve tasksToVerifyIDs(positionToVerify)
+                    tasksToVerifyIDs(positionToVerify) = dr(0)
+                    positionToVerify += 1
+                Else
+                    lstTODO.Items.Add(dr(2))
+                    ReDim Preserve tasksDoneIDs(positionDone)
+                    tasksDoneIDs(positionDone) = dr(0)
+                    positionDone += 1
+                End If
+            End While
+
+            dr.Close()
+
+            conexion.Close()
+        Catch ex As Exception
+            MsgBox("Error de conexion:" & ex.Message)
+            Me.Close()
+        End Try
     End Sub
 
     Private Sub loadAllTasks()

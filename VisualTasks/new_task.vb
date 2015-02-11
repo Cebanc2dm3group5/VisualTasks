@@ -92,7 +92,7 @@
 
             While dr.Read
 
-                ReDim usuarios(i + 1)
+                ReDim Preserve usuarios(i + 1)
                 usuarios(i) = dr(1)
                 cmbUser.Items.Add(dr(0))
 

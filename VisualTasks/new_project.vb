@@ -27,7 +27,7 @@
             Dim position As Integer = 0
             While dr.Read
                 cmbMaster.Items.Add(dr(0))
-                ReDim userIDs(position)
+                ReDim Preserve userIDs(position)
                 userIDs(position) = dr(1)
                 position += 1
             End While
