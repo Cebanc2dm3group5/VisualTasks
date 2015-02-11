@@ -41,9 +41,9 @@
 
     Private Sub loadUsers()
 
-        dgvUsers.Rows.Clear()
-
         Try
+
+            dgvUsers.Rows.Clear()
 
             Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;Persist Security Info=False;")
             Dim comando As New OleDb.OleDbCommand
@@ -104,8 +104,6 @@
 
                 cmd.ExecuteNonQuery()
 
-                MsgBox("Usuario guardado")
-
                 conexion.Close()
 
                 loadUsers()
@@ -127,15 +125,19 @@
 
         UsuarioID = dgvUsers.CurrentRow.Cells(0).Value()
 
-        If UsuarioID > 0 Then
+        If UsuarioID < 1 Then
+
+            MsgBox("Seleccione un usuario")
+
+        ElseIf UsuarioID = 1 Then
+
+            MsgBox("El usuario admin no se puede eliminar")
+
+        Else
 
             deleteUsuario(UsuarioID)
 
             loadUsers()
-
-        Else
-
-            MsgBox("Seleccione un usuario")
 
         End If
 
@@ -154,6 +156,8 @@
             cmd.CommandText = "DELETE FROM Usuario where UsuarioID = " & UsuarioID
 
             cmd.ExecuteNonQuery()
+
+            conexion.Close()
 
         Catch ex As Exception
 
