@@ -9,6 +9,8 @@
         userID = ID
         If isAdmin(userID) Then
             btnAdmin.Enabled = True
+        Else
+            btnAdmin.Enabled = False
         End If
     End Sub
 
