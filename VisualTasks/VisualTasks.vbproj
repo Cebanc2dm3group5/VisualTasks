@@ -129,10 +129,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ScrumDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="scrup_panel.Designer.vb">
-      <DependentUpon>scrup_panel.vb</DependentUpon>
+    <Compile Include="scrum_panel.Designer.vb">
+      <DependentUpon>scrum_panel.vb</DependentUpon>
     </Compile>
-    <Compile Include="scrup_panel.vb">
+    <Compile Include="scrum_panel.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -161,8 +161,8 @@
     <EmbeddedResource Include="project_users.resx">
       <DependentUpon>project_users.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="scrup_panel.resx">
-      <DependentUpon>scrup_panel.vb</DependentUpon>
+    <EmbeddedResource Include="scrum_panel.resx">
+      <DependentUpon>scrum_panel.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

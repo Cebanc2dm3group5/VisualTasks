@@ -8,7 +8,7 @@
     End Sub
 
     Private Sub loadUserCombo()
-        'TODO - load users from DDBB
+        'load users from DDBB
         cmbMaster.Items.Clear()
         'load projects
         Try
@@ -50,7 +50,7 @@
             userID = userIDs(cmbMaster.SelectedIndex)
         End If
 
-        'TODO - save project
+        'save project
         If title <> "" And description <> "" And userID <> -1 Then
             Try
                 Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")

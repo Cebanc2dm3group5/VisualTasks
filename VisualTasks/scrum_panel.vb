@@ -1,4 +1,4 @@
-﻿Public Class scrup_panel
+﻿Public Class scrum_panel
     Dim projectID As Integer
     Dim userID As Integer
 
