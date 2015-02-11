@@ -57,9 +57,20 @@
                 Dim cmd As New OleDb.OleDbCommand
                 cmd.Connection = conexion
                 cmd.CommandType = CommandType.Text
-                cmd.CommandText = "INSERT INTO UsuarioProyecto (UsuarioID, ProyectoID) VALUES (" & userComboIDs(cmbUser.SelectedIndex) & ", " & projectID & ")"
-                cmd.ExecuteNonQuery()
+
+                cmd.CommandText = "SELECT COUNT(*) FROM UsuarioProyecto where UsuarioID = " & userComboIDs(cmbUser.SelectedIndex) & " AND ProyectoID = " & projectID
+
+                Dim userproject As Integer = cmd.ExecuteScalar()
+
+                If userproject = 0 Then
+
+                    cmd.CommandText = "INSERT INTO UsuarioProyecto (UsuarioID, ProyectoID) VALUES (" & userComboIDs(cmbUser.SelectedIndex) & ", " & projectID & ")"
+                    cmd.ExecuteNonQuery()
+
+                End If
+
                 conexion.Close()
+
             Catch ex As Exception
                 MsgBox("Error de conexion:" & ex.Message)
                 Me.Close()
