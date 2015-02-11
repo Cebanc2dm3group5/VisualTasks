@@ -29,7 +29,7 @@
             Dim cmd As New OleDb.OleDbCommand
             cmd.Connection = conexion
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "SELECT UsuarioID FROM Usuario WHERE NombreUsuario='" & username & "'"
+            cmd.CommandText = "SELECT UsuarioID FROM Usuario WHERE NombreUsuario='" & username & "' AND Contrasena='" & password & "'"
 
             Dim dr As OleDb.OleDbDataReader
 
