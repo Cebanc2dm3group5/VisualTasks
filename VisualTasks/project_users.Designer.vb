@@ -23,7 +23,7 @@ Partial Class project_users
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.lstUsers = New System.Windows.Forms.ListBox()
-        Me.cmbMaster = New System.Windows.Forms.ComboBox()
+        Me.cmbUser = New System.Windows.Forms.ComboBox()
         Me.btnAddUser = New System.Windows.Forms.Button()
         Me.btnDeleteUserProject = New System.Windows.Forms.Button()
         Me.SuspendLayout()
@@ -36,13 +36,13 @@ Partial Class project_users
         Me.lstUsers.Size = New System.Drawing.Size(159, 238)
         Me.lstUsers.TabIndex = 0
         '
-        'cmbMaster
+        'cmbUser
         '
-        Me.cmbMaster.FormattingEnabled = True
-        Me.cmbMaster.Location = New System.Drawing.Point(200, 42)
-        Me.cmbMaster.Name = "cmbMaster"
-        Me.cmbMaster.Size = New System.Drawing.Size(121, 21)
-        Me.cmbMaster.TabIndex = 5
+        Me.cmbUser.FormattingEnabled = True
+        Me.cmbUser.Location = New System.Drawing.Point(200, 42)
+        Me.cmbUser.Name = "cmbUser"
+        Me.cmbUser.Size = New System.Drawing.Size(121, 21)
+        Me.cmbUser.TabIndex = 5
         '
         'btnAddUser
         '
@@ -69,7 +69,7 @@ Partial Class project_users
         Me.ClientSize = New System.Drawing.Size(361, 262)
         Me.Controls.Add(Me.btnDeleteUserProject)
         Me.Controls.Add(Me.btnAddUser)
-        Me.Controls.Add(Me.cmbMaster)
+        Me.Controls.Add(Me.cmbUser)
         Me.Controls.Add(Me.lstUsers)
         Me.Name = "project_users"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -78,7 +78,7 @@ Partial Class project_users
 
     End Sub
     Friend WithEvents lstUsers As System.Windows.Forms.ListBox
-    Friend WithEvents cmbMaster As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbUser As System.Windows.Forms.ComboBox
     Friend WithEvents btnAddUser As System.Windows.Forms.Button
     Friend WithEvents btnDeleteUserProject As System.Windows.Forms.Button
 End Class

@@ -2,6 +2,8 @@
     Dim projectID As Integer
     Dim userID As Integer
 
+    Dim StoryIDs As Integer()
+
     Sub New(ByVal pID As Integer, ByVal uID As Integer)
         InitializeComponent()
         projectID = pID
@@ -15,7 +17,36 @@
 
     Private Sub loadStories()
         lstStories.Items.Clear()
-        'TODO - load stories
+        'load stories
+        Try
+            Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
+            conexion.Open()
+
+            Dim cmd As New OleDb.OleDbCommand
+            cmd.Connection = conexion
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "SELECT Descripcion, HistoriaID FROM Historia WHERE ProyectoID=" & projectID
+
+            Dim dr As OleDb.OleDbDataReader
+
+            dr = cmd.ExecuteReader
+
+            Dim position As Integer = 0
+            While dr.Read
+                lstStories.Items.Add(dr(0))
+                ReDim StoryIDs(position)
+                StoryIDs(position) = dr(1)
+                position += 1
+            End While
+
+            dr.Close()
+
+            conexion.Close()
+        Catch ex As Exception
+            MsgBox("Error de conexion:" & ex.Message)
+            Me.Close()
+        End Try
+
     End Sub
 
     Private Sub btnNewStory_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewStory.Click
@@ -29,7 +60,7 @@
             End If
         Loop While story.Trim = ""
 
-            'TODO - save story
+        'TODO - save story
         saveStory(story, 0)
         loadStories()
 
@@ -63,6 +94,7 @@
     Private Sub UsuariosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UsuariosToolStripMenuItem.Click
         If isMaster(userID, projectID) Then
             Dim projectUsers As project_users = New project_users(projectID)
+            projectUsers.Show()
         End If
     End Sub
 
@@ -71,12 +103,11 @@
             btnNewStory.Enabled = True
             btn3to4.Enabled = True
             btn4to3.Enabled = True
+            smiGestion.Enabled = True
         End If
     End Sub
 
-    Private Sub MenuStrip1_ItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
 
-    End Sub
 
     Private Sub saveStory(ByVal story As String, ByVal puntos As Integer)
 
@@ -102,4 +133,5 @@
         End Try
 
     End Sub
+
 End Class

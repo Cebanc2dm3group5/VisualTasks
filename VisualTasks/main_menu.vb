@@ -18,9 +18,11 @@
 
     Private Sub lstProjects_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstProjects.DoubleClick
         'TODO - open project
-        Dim projectID As Integer = projectIDs(lstProjects.SelectedIndex)
-        Dim scrumPanel As scrum_panel = New scrum_panel(projectID, userID)
-        scrumPanel.Show()
+        If lstProjects.SelectedIndex <> -1 Then
+            Dim projectID As Integer = projectIDs(lstProjects.SelectedIndex)
+            Dim scrumPanel As scrum_panel = New scrum_panel(projectID, userID)
+            scrumPanel.Show()
+        End If
     End Sub
 
     Private Sub loadProjects()
