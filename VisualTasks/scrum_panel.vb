@@ -68,10 +68,13 @@
 
     Private Sub btnNewTask_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewTask.Click
         Dim storyID As Integer
-        'TODO - get story ID
-        Dim newTask As new_task = New new_task(storyID, isMaster(userID, projectID), projectID, userID)
-        If newTask.ShowDialog() = Windows.Forms.DialogResult.OK Then
-            loadTasks()
+        'get story ID
+        If lstStories.SelectedIndex <> -1 Then
+            storyID = StoryIDs(lstStories.SelectedIndex)
+            Dim newTask As new_task = New new_task(storyID, isMaster(userID, projectID), projectID, userID)
+            If newTask.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                loadTasks()
+            End If
         End If
     End Sub
 
