@@ -38,11 +38,14 @@
                 Dim cmd As New OleDb.OleDbCommand
                 cmd.Connection = conexion
                 cmd.CommandType = CommandType.Text
-                cmd.CommandText = "INSERT INTO Tarea (HistoriaID,UsuarioID,Estado,Descripcion) VALUES (" & storyID & "," & usuarioID & "," & 1 & "'," & taskName & ")"
+                cmd.CommandText = "INSERT INTO Tarea (HistoriaID,UsuarioID,Estado,Descripcion) VALUES (" & storyID & "," & usuarioID & "," & 1 & ",'" & taskName & "')"
 
                 cmd.ExecuteNonQuery()
 
                 conexion.Close()
+
+                Me.DialogResult = Windows.Forms.DialogResult.OK
+                Me.Close()
 
             Catch ex As Exception
 
@@ -52,9 +55,6 @@
             End Try
 
         End If
-
-        Me.DialogResult = Windows.Forms.DialogResult.OK
-        Me.Close()
     End Sub
 
     Private Sub new_task_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -93,7 +93,7 @@
 
             While dr.Read
 
-                ReDim Preserve usuarios(i + 1)
+                ReDim Preserve usuarios(i)
                 usuarios(i) = dr(1)
                 cmbUser.Items.Add(dr(0))
 
@@ -114,8 +114,6 @@
     Private Sub cmbUser_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbUser.SelectedIndexChanged
 
         'Select UserID
-        'TODO: Comprobar
-
         usuarioID = usuarios(cmbUser.SelectedIndex)
 
     End Sub
