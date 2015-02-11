@@ -9,6 +9,36 @@
 
     Private Sub loadUserCombo()
         'TODO - load users from DDBB
+        cmbMaster.Items.Clear()
+        'load projects
+        Try
+            Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
+            conexion.Open()
+
+            Dim cmd As New OleDb.OleDbCommand
+            cmd.Connection = conexion
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "SELECT NombreUsuario, UsuarioID FROM Usuario"
+
+            Dim dr As OleDb.OleDbDataReader
+
+            dr = cmd.ExecuteReader
+
+            Dim position As Integer = 0
+            While dr.Read
+                cmbMaster.Items.Add(dr(0))
+                ReDim userIDs(position)
+                userIDs(position) = dr(1)
+                position += 1
+            End While
+
+            dr.Close()
+
+            conexion.Close()
+        Catch ex As Exception
+            MsgBox("Error de conexion:" & ex.Message)
+            Me.Close()
+        End Try
     End Sub
 
     Private Sub btnAccept_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAccept.Click
@@ -16,6 +46,22 @@
         description = txtDescripcion.Text
 
         'TODO - save project
+        Try
+            Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
+            conexion.Open()
+
+            Dim cmd As New OleDb.OleDbCommand
+            cmd.Connection = conexion
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "INSERT INTO Proyecto (NombreProyecto, Descripcion, ScrumMaster) VALUES ('" & title & "', '" & description & "', " & userIDs(cmbMaster.SelectedIndex) & ")"
+
+            cmd.ExecuteNonQuery()
+
+            conexion.Close()
+        Catch ex As Exception
+            MsgBox("Error de conexion:" & ex.Message)
+            Me.Close()
+        End Try
 
         Me.DialogResult = Windows.Forms.DialogResult.OK
         Me.Close()

@@ -41,6 +41,7 @@
                 lstProjects.Items.Add(dr(0))
                 ReDim projectIDs(position)
                 projectIDs(position) = dr(1)
+                position += 1
             End While
 
             dr.Close()
