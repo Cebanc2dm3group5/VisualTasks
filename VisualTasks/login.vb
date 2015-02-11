@@ -15,6 +15,8 @@
             Dim menu As main_menu = New main_menu(userID)
             menu.Show()
             Me.Close()
+        Else
+            MsgBox("Usuario y contraseña no coinciden")
         End If
 
     End Sub
