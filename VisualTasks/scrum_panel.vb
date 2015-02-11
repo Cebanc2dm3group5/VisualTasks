@@ -19,11 +19,20 @@
     End Sub
 
     Private Sub btnNewStory_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewStory.Click
-        Dim story As String = InputBox("Nueva historia", "Introduzca una nueva historia", "")
-        If story <> "" Then
+
+        Dim story As String
+
+        Do
+            story = InputBox("Nueva historia", "Introduzca una nueva historia", "")
+            If story.Trim = "" Then
+                MsgBox("Inserta el nombre de la historia")
+            End If
+        Loop While story.Trim = ""
+
             'TODO - save story
-            loadStories()
-        End If
+        saveStory(story, 0)
+        loadStories()
+
     End Sub
 
     Private Sub btnNewTask_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewTask.Click
@@ -66,6 +75,31 @@
     End Sub
 
     Private Sub MenuStrip1_ItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
+    End Sub
+
+    Private Sub saveStory(ByVal story As String, ByVal puntos As Integer)
+
+        Try
+
+            Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
+            conexion.Open()
+
+            Dim cmd As New OleDb.OleDbCommand
+            cmd.Connection = conexion
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "INSERT INTO Historia (ProyectoID,Descripcion,Puntos) VALUES (" & projectID & ",'" & story & "'," & puntos & ")"
+
+            cmd.ExecuteNonQuery()
+
+            conexion.Close()
+
+        Catch ex As Exception
+
+            MsgBox("Error de conexion:" & ex.Message)
+            Me.Close()
+
+        End Try
 
     End Sub
 End Class
