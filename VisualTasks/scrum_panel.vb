@@ -61,12 +61,10 @@
 
         Dim story As String
 
-        Do
             story = InputBox("Nueva historia", "Introduzca una nueva historia", "")
             If story.Trim = "" Then
-                MsgBox("Inserta el nombre de la historia")
+            MsgBox("El nombre de la historia está vacío y no se guardará")
             End If
-        Loop While story.Trim = ""
 
         'save story
         saveStory(story, 0)
@@ -194,4 +192,7 @@
 
     End Sub
 
+    Private Sub btn1to2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn1to2.Click
+
+    End Sub
 End Class
