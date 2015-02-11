@@ -88,6 +88,11 @@
 
     Private Sub loadTasks()
         'load tasks from story
+        lstDOING.Items.Clear()
+        lstDONE.Items.Clear()
+        lstToVerify.Items.Clear()
+        lstDONE.Items.Clear()
+
         Try
             Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
             conexion.Open()
@@ -141,6 +146,11 @@
 
     Private Sub loadAllTasks()
         'TODO - load all tasks
+        lstDOING.Items.Clear()
+        lstDONE.Items.Clear()
+        lstToVerify.Items.Clear()
+        lstDONE.Items.Clear()
+
         Try
             Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
             conexion.Open()
