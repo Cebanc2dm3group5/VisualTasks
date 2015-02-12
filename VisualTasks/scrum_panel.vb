@@ -87,9 +87,14 @@
     Private Sub loadTasks()
         'load tasks from story
         lstDOING.Items.Clear()
-        lstDONE.Items.Clear()
+        lstTODO.Items.Clear()
         lstToVerify.Items.Clear()
         lstDONE.Items.Clear()
+
+        ReDim tasksDoingIDs(0)
+        ReDim tasksDoneIDs(0)
+        ReDim tasksTodoIDs(0)
+        ReDim tasksToVerifyIDs(0)
 
         Try
             Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
@@ -125,8 +130,8 @@
                     ReDim Preserve tasksToVerifyIDs(positionToVerify)
                     tasksToVerifyIDs(positionToVerify) = dr(0)
                     positionToVerify += 1
-                Else
-                    lstTODO.Items.Add(dr(2))
+                ElseIf estado = 4 Then
+                    lstDONE.Items.Add(dr(2))
                     ReDim Preserve tasksDoneIDs(positionDone)
                     tasksDoneIDs(positionDone) = dr(0)
                     positionDone += 1
@@ -145,9 +150,14 @@
     Private Sub loadAllTasks()
         'TODO - load all tasks
         lstDOING.Items.Clear()
-        lstDONE.Items.Clear()
+        lstTODO.Items.Clear()
         lstToVerify.Items.Clear()
         lstDONE.Items.Clear()
+
+        ReDim tasksDoingIDs(0)
+        ReDim tasksDoneIDs(0)
+        ReDim tasksTodoIDs(0)
+        ReDim tasksToVerifyIDs(0)
 
         Try
             Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
@@ -183,8 +193,8 @@
                     ReDim Preserve tasksToVerifyIDs(positionToVerify)
                     tasksToVerifyIDs(positionToVerify) = dr(0)
                     positionToVerify += 1
-                Else
-                    lstTODO.Items.Add(dr(2))
+                ElseIf estado = 4 Then
+                    lstDONE.Items.Add(dr(2))
                     ReDim Preserve tasksDoneIDs(positionDone)
                     tasksDoneIDs(positionDone) = dr(0)
                     positionDone += 1
@@ -271,32 +281,32 @@
     End Sub
 
     Private Sub btn1to2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn1to2.Click
-        If lstDONE.SelectedIndex <> -1 Then
-            setTaskEstado(tasksDoneIDs(lstDONE.SelectedIndex), 2)
+        If lstTODO.SelectedIndex <> -1 Then
+            setTaskEstado(tasksTodoIDs(lstTODO.SelectedIndex), 2)
         End If
     End Sub
 
     Private Sub btn2to1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn2to1.Click
         If lstDOING.SelectedIndex <> -1 Then
-            setTaskEstado(tasksDoneIDs(lstDOING.SelectedIndex), 1)
+            setTaskEstado(tasksDoingIDs(lstDOING.SelectedIndex), 1)
         End If
     End Sub
 
     Private Sub btn2to3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn2to3.Click
         If lstDOING.SelectedIndex <> -1 Then
-            setTaskEstado(tasksDoneIDs(lstDOING.SelectedIndex), 3)
+            setTaskEstado(tasksDoingIDs(lstDOING.SelectedIndex), 3)
         End If
     End Sub
 
     Private Sub btn3to2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn3to2.Click
         If lstToVerify.SelectedIndex <> -1 Then
-            setTaskEstado(tasksDoneIDs(lstToVerify.SelectedIndex), 2)
+            setTaskEstado(tasksToVerifyIDs(lstToVerify.SelectedIndex), 2)
         End If
     End Sub
 
     Private Sub btn3to4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn3to4.Click
         If lstToVerify.SelectedIndex <> -1 Then
-            setTaskEstado(tasksDoneIDs(lstToVerify.SelectedIndex), 4)
+            setTaskEstado(tasksToVerifyIDs(lstToVerify.SelectedIndex), 4)
         End If
     End Sub
 
