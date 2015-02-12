@@ -74,7 +74,7 @@
             End While
 
             dr.Close()
-
+            calculateProjectPoints()
             conexion.Close()
         Catch ex As Exception
             MsgBox("Error de conexion:" & ex.Message)
@@ -269,7 +269,7 @@
             End While
 
             dr.Close()
-
+            calculateProjectPoints()
             conexion.Close()
         Catch ex As Exception
             MsgBox("Error de conexion:" & ex.Message)
@@ -391,16 +391,16 @@
             Dim cmd As New OleDb.OleDbCommand
             cmd.Connection = conexion
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "SELECT SUM(Tarea.Puntos) FROM Tarea, Historia WHERE Tarea.HistoriaID=Historia.HistoriaID and Historia.ProyectoID=" & projectID
+            cmd.CommandText = "SELECT Tarea.Estado, Tarea.Puntos FROM Tarea, Historia WHERE Tarea.HistoriaID=Historia.HistoriaID and Historia.ProyectoID=" & projectID
 
             Dim dr As OleDb.OleDbDataReader
 
             dr = cmd.ExecuteReader
 
             Dim totalPuntos As Integer = 0
-            If dr.Read Then
-                totalPuntos += dr(0)
-            End If
+            While dr.Read
+                totalPuntos += dr(1)
+            End While
             dr.Close()
 
             cmd.CommandText = "SELECT Tarea.Estado, Tarea.Puntos FROM Tarea, Historia WHERE Tarea.HistoriaID=Historia.HistoriaID and Historia.ProyectoID=" & projectID & " AND Tarea.Estado=4"
