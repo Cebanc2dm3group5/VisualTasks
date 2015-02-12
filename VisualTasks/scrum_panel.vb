@@ -154,7 +154,7 @@
 
             conexion.Close()
 
-            calculateProjectPoints()
+            'calculateProjectPoints()
 
         Catch ex As Exception
             MsgBox("Error de conexion:" & ex.Message)
