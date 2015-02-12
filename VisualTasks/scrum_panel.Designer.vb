@@ -45,6 +45,7 @@ Partial Class scrum_panel
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.smiGestion = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.lblPoints = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -245,11 +246,21 @@ Partial Class scrum_panel
         Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.UsuariosToolStripMenuItem.Text = "Usuarios"
         '
+        'lblPoints
+        '
+        Me.lblPoints.AutoSize = True
+        Me.lblPoints.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPoints.Location = New System.Drawing.Point(1185, 338)
+        Me.lblPoints.Name = "lblPoints"
+        Me.lblPoints.Size = New System.Drawing.Size(0, 39)
+        Me.lblPoints.TabIndex = 21
+        '
         'scrum_panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1281, 403)
+        Me.ClientSize = New System.Drawing.Size(1281, 399)
+        Me.Controls.Add(Me.lblPoints)
         Me.Controls.Add(Me.btnSeeAll)
         Me.Controls.Add(Me.btnNewStory)
         Me.Controls.Add(Me.btnNewTask)
@@ -303,4 +314,5 @@ Partial Class scrum_panel
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents smiGestion As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UsuariosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents lblPoints As System.Windows.Forms.Label
 End Class

@@ -141,6 +141,9 @@
             dr.Close()
 
             conexion.Close()
+
+            calculateProjectPoints()
+
         Catch ex As Exception
             MsgBox("Error de conexion:" & ex.Message)
             Me.Close()
@@ -314,5 +317,43 @@
         If lstDONE.SelectedIndex <> -1 Then
             setTaskEstado(tasksDoneIDs(lstDONE.SelectedIndex), 3)
         End If
+    End Sub
+
+    Private Sub calculateProjectPoints()
+        Try
+            Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
+            conexion.Open()
+
+            Dim cmd As New OleDb.OleDbCommand
+            cmd.Connection = conexion
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "SELECT SUM(Puntos) FROM Tarea, Historia WHERE Tarea.HistoriaID=Historia.HistoriaID and Historia.ProyectoID=" & projectID 
+
+            Dim dr As OleDb.OleDbDataReader
+
+            dr = cmd.ExecuteReader
+
+            Dim totalPuntos As Integer
+            If dr.Read Then
+                totalPuntos = dr(0)
+            End If
+
+            cmd.CommandText = "SELECT SUM(Puntos) FROM Tarea, Historia WHERE Tarea.HistoriaID=Historia.HistoriaID and Historia.ProyectoID=" & projectID & " AND Tarea.Estado=4"
+            dr = cmd.ExecuteReader
+
+            Dim completadosPuntos As Integer
+            If dr.Read Then
+                completadosPuntos = dr(0)
+            End If
+
+            dr.Close()
+
+            conexion.Close()
+
+            lblPoints.Text = completadosPuntos & "/" & totalPuntos
+        Catch ex As Exception
+            MsgBox("Error de conexion:" & ex.Message)
+            Me.Close()
+        End Try
     End Sub
 End Class
