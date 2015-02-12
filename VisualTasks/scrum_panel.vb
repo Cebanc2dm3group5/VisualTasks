@@ -105,7 +105,7 @@
             Dim cmd As New OleDb.OleDbCommand
             cmd.Connection = conexion
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "SELECT UsuarioID, Estado, Descripcion FROM Tarea WHERE HistoriaID=" & StoryIDs(lstStories.SelectedIndex)
+            cmd.CommandText = "SELECT UsuarioID, Estado, Descripcion, TareaID FROM Tarea WHERE HistoriaID=" & StoryIDs(lstStories.SelectedIndex)
 
             Dim dr As OleDb.OleDbDataReader
 
@@ -125,7 +125,7 @@
                     texto += dr(2)
                     lstTODO.Items.Add(texto)
                     ReDim Preserve tasksTodoIDs(positionTodo)
-                    tasksTodoIDs(positionTodo) = dr(0)
+                    tasksTodoIDs(positionTodo) = dr(3)
                     positionTodo += 1
                 ElseIf estado = 2 Then
                     If dr(0) = userID Then
@@ -134,7 +134,7 @@
                     texto += dr(2)
                     lstDOING.Items.Add(texto)
                     ReDim Preserve tasksDoingIDs(positionDoing)
-                    tasksDoingIDs(positionDoing) = dr(0)
+                    tasksDoingIDs(positionDoing) = dr(3)
                     positionDoing += 1
                 ElseIf estado = 3 Then
                     If dr(0) = userID Then
@@ -143,7 +143,7 @@
                     texto += dr(2)
                     lstToVerify.Items.Add(texto)
                     ReDim Preserve tasksToVerifyIDs(positionToVerify)
-                    tasksToVerifyIDs(positionToVerify) = dr(0)
+                    tasksToVerifyIDs(positionToVerify) = dr(3)
                     positionToVerify += 1
                 ElseIf estado = 4 Then
                     If dr(0) = userID Then
@@ -152,7 +152,7 @@
                     texto += dr(2)
                     lstDONE.Items.Add(texto)
                     ReDim Preserve tasksDoneIDs(positionDone)
-                    tasksDoneIDs(positionDone) = dr(0)
+                    tasksDoneIDs(positionDone) = dr(3)
                     positionDone += 1
                 End If
             End While
@@ -190,7 +190,7 @@
             Dim cmd As New OleDb.OleDbCommand
             cmd.Connection = conexion
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "SELECT Tarea.UsuarioID, Tarea.Estado, Tarea.Descripcion FROM Tarea, Historia WHERE Tarea.HistoriaID=Historia.HistoriaID AND Historia.ProyectoID=" & projectID
+            cmd.CommandText = "SELECT Tarea.UsuarioID, Tarea.Estado, Tarea.Descripcion, Tarea.TareaID FROM Tarea, Historia WHERE Tarea.HistoriaID=Historia.HistoriaID AND Historia.ProyectoID=" & projectID
 
             Dim dr As OleDb.OleDbDataReader
 
@@ -210,7 +210,7 @@
                     texto += dr(2)
                     lstTODO.Items.Add(texto)
                     ReDim Preserve tasksTodoIDs(positionTodo)
-                    tasksTodoIDs(positionTodo) = dr(0)
+                    tasksTodoIDs(positionTodo) = dr(3)
                     positionTodo += 1
                 ElseIf estado = 2 Then
                     If dr(0) = userID Then
@@ -219,7 +219,7 @@
                     texto += dr(2)
                     lstDOING.Items.Add(texto)
                     ReDim Preserve tasksDoingIDs(positionDoing)
-                    tasksDoingIDs(positionDoing) = dr(0)
+                    tasksDoingIDs(positionDoing) = dr(3)
                     positionDoing += 1
                 ElseIf estado = 3 Then
                     If dr(0) = userID Then
@@ -228,7 +228,7 @@
                     texto += dr(2)
                     lstToVerify.Items.Add(texto)
                     ReDim Preserve tasksToVerifyIDs(positionToVerify)
-                    tasksToVerifyIDs(positionToVerify) = dr(0)
+                    tasksToVerifyIDs(positionToVerify) = dr(3)
                     positionToVerify += 1
                 ElseIf estado = 4 Then
                     If dr(0) = userID Then
@@ -237,7 +237,7 @@
                     texto += dr(2)
                     lstDONE.Items.Add(texto)
                     ReDim Preserve tasksDoneIDs(positionDone)
-                    tasksDoneIDs(positionDone) = dr(0)
+                    tasksDoneIDs(positionDone) = dr(3)
                     positionDone += 1
                 End If
             End While
