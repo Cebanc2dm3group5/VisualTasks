@@ -117,21 +117,33 @@
                 Dim estado As Integer = dr(1)
                 If estado = 1 Then
                     lstTODO.Items.Add(dr(2))
+                    If dr(0) = userID Then
+                        lstTODO.SetSelected(positionTodo, True)
+                    End If
                     ReDim Preserve tasksTodoIDs(positionTodo)
                     tasksTodoIDs(positionTodo) = dr(0)
                     positionTodo += 1
                 ElseIf estado = 2 Then
                     lstDOING.Items.Add(dr(2))
+                    If dr(0) = userID Then
+                        lstDOING.SetSelected(positionDoing, True)
+                    End If
                     ReDim Preserve tasksDoingIDs(positionDoing)
                     tasksDoingIDs(positionDoing) = dr(0)
                     positionDoing += 1
                 ElseIf estado = 3 Then
                     lstToVerify.Items.Add(dr(2))
+                    If dr(0) = userID Then
+                        lstToVerify.SetSelected(positionToVerify, True)
+                    End If
                     ReDim Preserve tasksToVerifyIDs(positionToVerify)
                     tasksToVerifyIDs(positionToVerify) = dr(0)
                     positionToVerify += 1
                 ElseIf estado = 4 Then
                     lstDONE.Items.Add(dr(2))
+                    If dr(0) = userID Then
+                        lstDONE.SetSelected(positionDone, True)
+                    End If
                     ReDim Preserve tasksDoneIDs(positionDone)
                     tasksDoneIDs(positionDone) = dr(0)
                     positionDone += 1
@@ -246,7 +258,7 @@
             Dim cmd As New OleDb.OleDbCommand
             cmd.Connection = conexion
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "INSERT INTO Historia (ProyectoID,Descripcion,Puntos) VALUES (" & projectID & ",'" & story & "'," & puntos & ")"
+            cmd.CommandText = "INSERT INTO Historia (ProyectoID,Descripcion) VALUES (" & projectID & ",'" & story & "')"
 
             cmd.ExecuteNonQuery()
 
