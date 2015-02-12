@@ -37,7 +37,7 @@
             Dim cmd As New OleDb.OleDbCommand
             cmd.Connection = conexion
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "SELECT NombreProyecto, ProyectoID FROM Proyecto"
+            cmd.CommandText = "SELECT Proyecto.NombreProyecto, Proyecto.ProyectoID FROM Proyecto, UsuarioProyecto WHERE Proyecto.ProyectoID = UsuarioProyecto.ProyectoID AND UsuarioProyecto.UsuarioID = " & userID
 
             Dim dr As OleDb.OleDbDataReader
 
