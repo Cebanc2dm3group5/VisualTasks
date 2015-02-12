@@ -96,6 +96,8 @@
         ReDim tasksTodoIDs(0)
         ReDim tasksToVerifyIDs(0)
 
+        Dim texto As String
+
         Try
             Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
             conexion.Open()
@@ -114,36 +116,41 @@
             Dim positionToVerify As Integer = 0
             Dim positionDone As Integer = 0
             While dr.Read
+                texto = ""
                 Dim estado As Integer = dr(1)
                 If estado = 1 Then
-                    lstTODO.Items.Add(dr(2))
                     If dr(0) = userID Then
-                        lstTODO.SetSelected(positionTodo, True)
+                        texto = "**"
                     End If
+                    texto += dr(2)
+                    lstTODO.Items.Add(texto)
                     ReDim Preserve tasksTodoIDs(positionTodo)
                     tasksTodoIDs(positionTodo) = dr(0)
                     positionTodo += 1
                 ElseIf estado = 2 Then
-                    lstDOING.Items.Add(dr(2))
                     If dr(0) = userID Then
-                        lstDOING.SetSelected(positionDoing, True)
+                        texto = "**"
                     End If
+                    texto += dr(2)
+                    lstDOING.Items.Add(texto)
                     ReDim Preserve tasksDoingIDs(positionDoing)
                     tasksDoingIDs(positionDoing) = dr(0)
                     positionDoing += 1
                 ElseIf estado = 3 Then
-                    lstToVerify.Items.Add(dr(2))
                     If dr(0) = userID Then
-                        lstToVerify.SetSelected(positionToVerify, True)
+                        texto = "**"
                     End If
+                    texto += dr(2)
+                    lstToVerify.Items.Add(texto)
                     ReDim Preserve tasksToVerifyIDs(positionToVerify)
                     tasksToVerifyIDs(positionToVerify) = dr(0)
                     positionToVerify += 1
                 ElseIf estado = 4 Then
-                    lstDONE.Items.Add(dr(2))
                     If dr(0) = userID Then
-                        lstDONE.SetSelected(positionDone, True)
+                        texto = "**"
                     End If
+                    texto += dr(2)
+                    lstDONE.Items.Add(texto)
                     ReDim Preserve tasksDoneIDs(positionDone)
                     tasksDoneIDs(positionDone) = dr(0)
                     positionDone += 1
@@ -174,6 +181,8 @@
         ReDim tasksTodoIDs(0)
         ReDim tasksToVerifyIDs(0)
 
+        Dim texto As String
+
         Try
             Dim conexion As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Scrum.mdb;")
             conexion.Open()
@@ -192,24 +201,41 @@
             Dim positionToVerify As Integer = 0
             Dim positionDone As Integer = 0
             While dr.Read
+                texto = ""
                 Dim estado As Integer = dr(1)
                 If estado = 1 Then
-                    lstTODO.Items.Add(dr(2))
+                    If dr(0) = userID Then
+                        texto = "**"
+                    End If
+                    texto += dr(2)
+                    lstTODO.Items.Add(texto)
                     ReDim Preserve tasksTodoIDs(positionTodo)
                     tasksTodoIDs(positionTodo) = dr(0)
                     positionTodo += 1
                 ElseIf estado = 2 Then
-                    lstDOING.Items.Add(dr(2))
+                    If dr(0) = userID Then
+                        texto = "**"
+                    End If
+                    texto += dr(2)
+                    lstDOING.Items.Add(texto)
                     ReDim Preserve tasksDoingIDs(positionDoing)
                     tasksDoingIDs(positionDoing) = dr(0)
                     positionDoing += 1
                 ElseIf estado = 3 Then
-                    lstToVerify.Items.Add(dr(2))
+                    If dr(0) = userID Then
+                        texto = "**"
+                    End If
+                    texto += dr(2)
+                    lstToVerify.Items.Add(texto)
                     ReDim Preserve tasksToVerifyIDs(positionToVerify)
                     tasksToVerifyIDs(positionToVerify) = dr(0)
                     positionToVerify += 1
                 ElseIf estado = 4 Then
-                    lstDONE.Items.Add(dr(2))
+                    If dr(0) = userID Then
+                        texto = "**"
+                    End If
+                    texto += dr(2)
+                    lstDONE.Items.Add(texto)
                     ReDim Preserve tasksDoneIDs(positionDone)
                     tasksDoneIDs(positionDone) = dr(0)
                     positionDone += 1
