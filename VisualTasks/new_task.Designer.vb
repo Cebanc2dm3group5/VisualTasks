@@ -26,13 +26,15 @@ Partial Class new_task
         Me.txtTaskName = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbUser = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtPuntos = New System.Windows.Forms.MaskedTextBox()
         Me.SuspendLayout()
         '
         'btnSaveTask
         '
-        Me.btnSaveTask.Location = New System.Drawing.Point(249, 38)
+        Me.btnSaveTask.Location = New System.Drawing.Point(249, 46)
         Me.btnSaveTask.Name = "btnSaveTask"
-        Me.btnSaveTask.Size = New System.Drawing.Size(139, 41)
+        Me.btnSaveTask.Size = New System.Drawing.Size(139, 44)
         Me.btnSaveTask.TabIndex = 0
         Me.btnSaveTask.Text = "Guardar"
         Me.btnSaveTask.UseVisualStyleBackColor = True
@@ -47,7 +49,7 @@ Partial Class new_task
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(16, 52)
+        Me.Label3.Location = New System.Drawing.Point(16, 49)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(51, 13)
         Me.Label3.TabIndex = 7
@@ -56,16 +58,35 @@ Partial Class new_task
         'cmbUser
         '
         Me.cmbUser.FormattingEnabled = True
-        Me.cmbUser.Location = New System.Drawing.Point(85, 49)
+        Me.cmbUser.Location = New System.Drawing.Point(85, 46)
         Me.cmbUser.Name = "cmbUser"
         Me.cmbUser.Size = New System.Drawing.Size(121, 21)
         Me.cmbUser.TabIndex = 6
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(16, 77)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(40, 13)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "Puntos"
+        '
+        'txtPuntos
+        '
+        Me.txtPuntos.Location = New System.Drawing.Point(85, 73)
+        Me.txtPuntos.Mask = "99"
+        Me.txtPuntos.Name = "txtPuntos"
+        Me.txtPuntos.Size = New System.Drawing.Size(121, 20)
+        Me.txtPuntos.TabIndex = 10
         '
         'new_task
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(400, 87)
+        Me.ClientSize = New System.Drawing.Size(400, 105)
+        Me.Controls.Add(Me.txtPuntos)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbUser)
         Me.Controls.Add(Me.txtTaskName)
@@ -81,4 +102,6 @@ Partial Class new_task
     Friend WithEvents txtTaskName As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents cmbUser As System.Windows.Forms.ComboBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents txtPuntos As System.Windows.Forms.MaskedTextBox
 End Class

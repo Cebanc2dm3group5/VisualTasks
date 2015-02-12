@@ -23,10 +23,20 @@
         'save task
 
         Dim taskName As String = txtTaskName.Text
+        Dim points As Integer
+        If txtPuntos.Text.Trim = "" Then
+            points = 0
+        Else
+            points = CInt(txtPuntos.Text)
+        End If
 
         If taskName.Trim = "" Or usuarioID < 1 Then
 
             MsgBox("Introduce todos los datos")
+
+        ElseIf points < 1 Or points > 10 Then
+
+            MsgBox("Introduce puntos entre 1 y 10")
 
         Else
 
