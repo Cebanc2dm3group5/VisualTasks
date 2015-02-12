@@ -9,6 +9,8 @@
         userID = ID
         If isAdmin(userID) Then
             btnAdmin.Enabled = True
+        Else
+            btnAdmin.Enabled = False
         End If
     End Sub
 
@@ -94,6 +96,17 @@
     Private Sub btnAdmin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdmin.Click
 
         usuario.Show()
+
+    End Sub
+
+    Private Sub btnDesloguear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDesloguear.Click
+
+        For count As Integer = My.Application.OpenForms.Count - 1 To 1 Step -1
+            My.Application.OpenForms(count).Close()
+        Next
+
+        login.Show()
+        Me.Close()
 
     End Sub
 End Class

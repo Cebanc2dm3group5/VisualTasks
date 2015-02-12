@@ -178,4 +178,8 @@
         Me.Close()
 
     End Sub
+
+    Private Sub dgvUsers_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvUsers.CellContentClick
+
+    End Sub
 End Class

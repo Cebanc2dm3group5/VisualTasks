@@ -28,6 +28,7 @@ Partial Class main_menu
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnNewProject = New System.Windows.Forms.Button()
         Me.btnDeleteProject = New System.Windows.Forms.Button()
+        Me.btnDesloguear = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lstProjects
@@ -86,11 +87,21 @@ Partial Class main_menu
         Me.btnDeleteProject.Text = "Eliminar proyecto"
         Me.btnDeleteProject.UseVisualStyleBackColor = True
         '
+        'btnDesloguear
+        '
+        Me.btnDesloguear.Location = New System.Drawing.Point(12, 476)
+        Me.btnDesloguear.Name = "btnDesloguear"
+        Me.btnDesloguear.Size = New System.Drawing.Size(338, 51)
+        Me.btnDesloguear.TabIndex = 6
+        Me.btnDesloguear.Text = "Desloguearse"
+        Me.btnDesloguear.UseVisualStyleBackColor = True
+        '
         'main_menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(363, 492)
+        Me.ClientSize = New System.Drawing.Size(363, 535)
+        Me.Controls.Add(Me.btnDesloguear)
         Me.Controls.Add(Me.btnDeleteProject)
         Me.Controls.Add(Me.btnNewProject)
         Me.Controls.Add(Me.Label2)
@@ -110,4 +121,5 @@ Partial Class main_menu
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnNewProject As System.Windows.Forms.Button
     Friend WithEvents btnDeleteProject As System.Windows.Forms.Button
+    Friend WithEvents btnDesloguear As System.Windows.Forms.Button
 End Class
