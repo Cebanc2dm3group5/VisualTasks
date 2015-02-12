@@ -48,7 +48,7 @@
                 Dim cmd As New OleDb.OleDbCommand
                 cmd.Connection = conexion
                 cmd.CommandType = CommandType.Text
-                cmd.CommandText = "INSERT INTO Tarea (HistoriaID,UsuarioID,Estado,Descripcion) VALUES (" & storyID & "," & usuarioID & "," & 1 & ",'" & taskName & "')"
+                cmd.CommandText = "INSERT INTO Tarea (HistoriaID,UsuarioID,Estado,Descripcion,Puntos) VALUES (" & storyID & "," & usuarioID & "," & 1 & ",'" & taskName & "'," & points & ")"
 
                 cmd.ExecuteNonQuery()
 
